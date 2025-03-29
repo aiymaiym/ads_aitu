@@ -1,0 +1,114 @@
+public class assignment1 {
+
+    // Problem 1: minimum in array
+    // Time Complexity: O(n) - linear time
+    // Space Complexity: O(1) - constant space
+    public static int findMin(int[] arr) {
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) min = arr[i];
+        }
+        return min;
+    }
+
+    // Problem 2: average of array
+    // Time Complexity: O(n) - linear time
+    // Space Complexity: O(1) - constant space
+    public static double average(int[] arr) {
+        int sum = 0;
+        for (int num : arr) sum += num;
+        return (double) sum / arr.length;
+    }
+
+    // Problem 3: сheck if number is prime
+    // Time Complexity: O(√n) - square root time
+    // Space Complexity: O(1) - constant space
+    public static boolean isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0)
+                return false;
+        }
+        return true;
+    }
+
+    // Problem 4: factorial using recursion
+    // Time Complexity: O(n) - linear time
+    // Space Complexity: O(n) - linear space
+    public static int factorial(int n) {
+        if (n == 0 || n == 1) return 1;
+        return n * factorial(n - 1);
+    }
+
+    // Problem 5: fibonacci using recursion
+    // Time Complexity: O(2^n) - exponential time
+    // Space Complexity: O(n) - linear space
+    public static int fibonacci(int n) {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    // Problem 6: power (a^n) using recursion
+    // Time Complexity: O(n) - linear time
+    // Space Complexity: O(n) - linear space (stack depth)
+    public static int power(int a, int n) {
+        if (n == 0) return 1;
+        return a * power(a, n - 1);
+    }
+
+    // Problem 7: print all permutations
+    // Time Complexity: O(n!) - factorial time
+    // Space Complexity: O(n) - linear space
+    public static void permute(String str, String result) {
+        if (str.length() == 0) {
+            System.out.println(result);
+            return;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            permute(str.substring(0, i) + str.substring(i + 1), result + str.charAt(i));
+        }
+    }
+
+    // Problem 8: checking if string consists of only digits
+    // Time Complexity: O(n) - linear time
+    // Space Complexity: O(1) - constant space
+    public static boolean isAllDigits(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) return false;
+        }
+        return true;
+    }
+
+    // Problem 9: binomial coefficient using recursion
+    // Time Complexity: O(2^n) - exponential time
+    // Space Complexity: O(n) - linear space
+    public static int binomial(int n, int k) {
+        if (k == 0 || k == n) return 1;
+        return binomial(n - 1, k - 1) + binomial(n - 1, k);
+    }
+
+    // Problem 10: GCD using Euclidean Algorithm
+    // Time Complexity: O(log n) - logarithmic time
+    // Space Complexity: O(log n) - logarithmic space
+    public static int gcd(int a, int b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {10, 1, 24, 3, 45};
+        public static void main(String[] args) {
+            System.out.println("Min: " + findMin(new int[]{10, 1, 32, 3, 45}));
+            System.out.println("Avg: " + average(new int[]{3, 2, 4, 1}));
+            System.out.println("Is Prime: " + isPrime(7));
+            System.out.println("Factorial: " + factorial(5));
+            System.out.println("Fibonacci: " + fibonacci(5));
+            System.out.println("Power: " + power(2, 10));
+            System.out.println("Is All Digits: " + isAllDigits("123456"));
+            System.out.println("Binomial: " + binomial(7, 3));
+            System.out.println("GCD: " + gcd(32, 48));
+            System.out.println("Permutations of IOX:");
+            permute("IOX", "");
+        }
+    }
