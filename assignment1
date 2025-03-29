@@ -1,25 +1,23 @@
 public class assignment1 {
-
     // Problem 1: minimum in array
     // Time Complexity: O(n) - linear time
     // Space Complexity: O(1) - constant space
-    public static int findMin(int[] arr) {
-        int min = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < min) min = arr[i];
-        }
-        return min;
+    public static int findMinRecursive(int[] arr, int index) {
+        if (index == arr.length - 1) return arr[index];
+        return Math.min(arr[index], findMinRecursive(arr, index + 1));
     }
 
     // Problem 2: average of array
     // Time Complexity: O(n) - linear time
     // Space Complexity: O(1) - constant space
-    public static double average(int[] arr) {
-        int sum = 0;
-        for (int num : arr) sum += num;
+    public static double averageRecursive(int[] arr) {
+        int sum = sumRecursive(arr, 0);
         return (double) sum / arr.length;
     }
-
+    private static int sumRecursive(int[] arr, int index) {
+        if (index == arr.length) return 0;
+        return arr[index] + sumRecursive(arr, index + 1);
+    }
     // Problem 3: сheck if number is prime
     // Time Complexity: O(√n) - square root time
     // Space Complexity: O(1) - constant space
