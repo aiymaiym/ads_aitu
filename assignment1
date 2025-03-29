@@ -97,8 +97,6 @@ public class assignment1 {
     }
 
     public static void main(String[] args) {
-        int[] arr1 = {10, 1, 24, 3, 45};
-        public static void main(String[] args) {
             System.out.println("Min: " + findMin(new int[]{10, 1, 32, 3, 45}));
             System.out.println("Avg: " + average(new int[]{3, 2, 4, 1}));
             System.out.println("Is Prime: " + isPrime(7));
