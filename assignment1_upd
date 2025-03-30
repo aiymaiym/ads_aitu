@@ -1,0 +1,149 @@
+import java.util.Scanner;
+public class assignment1 {
+    // Problem 1: minimum in array
+    // O(n) – linear
+    // O(n)
+    public static void task1() {
+        int[] arr = {10, 1, 24, 3, 45};
+        System.out.println("Min: " + findMinRecursive(arr, 0));
+    }
+    public static int findMinRecursive(int[] arr, int index) {
+        if (index == arr.length - 1) return arr[index];
+        return Math.min(arr[index], findMinRecursive(arr, index + 1));
+    }
+
+    // Problem 2: average of array
+    // O(n) – linear
+    // O(n)
+    public static void task2() {
+        int[] arr = {3, 2, 4, 1};
+        System.out.println("Avg: " + averageRecursive(arr));
+    }
+    public static double averageRecursive(int[] arr) {
+        int sum = sumRecursive(arr, 0);
+        return (double) sum / arr.length;
+    }
+    private static int sumRecursive(int[] arr, int index) {
+        if (index == arr.length) return 0;
+        return arr[index] + sumRecursive(arr, index + 1);
+    }
+
+    // Problem 3: check if number is prime
+    // O(√n) – square root
+    // O(1)
+    public static void task3() {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        System.out.println("Is Prime: " + isPrime(n));
+    }
+    public static boolean isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+
+    // Problem 4: factorial
+    // O(n) – linear
+    // O(n)
+    public static void task4() {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        System.out.println("Factorial: " + factorial(n));
+    }
+    public static int factorial(int n) {
+        if (n == 0 || n == 1) return 1;
+        return n * factorial(n - 1);
+    }
+
+    // Problem 5: fibonacci
+    // O(2^n) – exponential
+    // O(n)
+    public static void task5() {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        System.out.println("Fibonacci: " + fibonacci(n));
+    }
+    public static int fibonacci(int n) {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    // Problem 6: power
+    // O(n) – linear
+    // O(n)
+    public static void task6() {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int n = scanner.nextInt();
+        System.out.println("Power: " + power(a, n));
+    }
+    public static int power(int a, int n) {
+        if (n == 0) return 1;
+        return a * power(a, n - 1);
+    }
+
+    // Problem 7: permutations
+    // O(n!) – factorial
+    // O(n)
+    public static void task7() {
+        permute("IOX", "");
+    }
+    public static void permute(String str, String result) {
+        if (str.length() == 0) {
+            System.out.println(result);
+            return;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            permute(str.substring(0, i) + str.substring(i + 1), result + str.charAt(i));
+        }
+    }
+
+    // Problem 8: check if string is all digits
+    // O(n) – linear
+    // O(1)
+    public static void task8() {
+        System.out.println("Is All Digits: " + isAllDigits("123456"));
+    }
+    public static boolean isAllDigits(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) return false;
+        }
+        return true;
+    }
+
+    // Problem 9: binomial coefficient
+    // O(2^n) – exponential
+    // O(n)
+    public static void task9() {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int k = scanner.nextInt();
+        System.out.println("Binomial: " + binomial(n, k));
+    }
+    public static int binomial(int n, int k) {
+        if (k == 0 || k == n) return 1;
+        return binomial(n - 1, k - 1) + binomial(n - 1, k);
+    }
+
+    // Problem 10: GCD using Euclidean аlgorithm
+    // O(log n) – super efficient
+    // O(log n)
+    public static void task10() {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        System.out.println("GCD: " + gcd(a, b));
+    }
+    public static int gcd(int a, int b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
+    }
+
+    public static void main(String[] args) {
+        task6();
+    }
+
+}
